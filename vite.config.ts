@@ -25,6 +25,7 @@ export default defineConfig(({ mode }) => {
         imports: [
           'vue',
           'vue-router',
+          'pinia',
           '@vueuse/core',
           {
             dayjs: [['default', 'dayjs']],

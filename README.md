@@ -10,7 +10,7 @@
 - **HTTP**：[Axios](https://axios-http.com/)
 - **Mock**：[MSW](https://msw.nodejs.cn/)
 - **图表**：[ECharts](https://echarts.apache.org/)
-- **状态管理**：[Pinia](https://pinia.vuejs.org/)（已安装，当前未启用）
+- **状态管理**：[Pinia](https://pinia.vuejs.org/)
 
 ## 📁 项目结构
 
@@ -51,9 +51,6 @@ src/
 [.env.production](.env.production)
 
 ```env
-# 网关地址 - 所有API请求的统一入口
-VITE_GATEWAY=http://192.168.3.1:9000
-
 # API服务前缀 - HTTP接口的基础路径
 VITE_API_TEMPLATE=/api
 

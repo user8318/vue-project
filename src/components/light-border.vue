@@ -1,8 +1,13 @@
 <script setup lang="ts">
-const props = withDefaults(defineProps<{ reverse?: boolean; noLight?: boolean }>(), {
-  reverse: false,
-  none: false,
-})
+const props = withDefaults(
+  defineProps<{ borderColor?: string; bgColor?: string; reverse?: boolean; noLight?: boolean }>(),
+  {
+    borderColor: 'aqua',
+    bgColor: '#0b1753',
+    reverse: false,
+    none: false,
+  },
+)
 </script>
 <template>
   <div class="light-border" :class="{ reverse: props.reverse, 'no-light': props.noLight }">
@@ -26,8 +31,11 @@ const props = withDefaults(defineProps<{ reverse?: boolean; noLight?: boolean }>
   }
 }
 .light-border {
+  --border-color: v-bind('props.borderColor');
+  --bg-color: v-bind('props.bgColor');
   position: relative;
   z-index: 0;
+  width: max-content;
 }
 .light-border::before,
 .light-border::after {
@@ -46,9 +54,9 @@ const props = withDefaults(defineProps<{ reverse?: boolean; noLight?: boolean }>
   background-image: conic-gradient(
     from var(--angle),
     transparent 0% 20%,
-    aqua 39% 49%,
+    var(--border-color) 39% 49%,
     transparent 50% 70%,
-    aqua 89% 99%,
+    var(--border-color) 89% 99%,
     transparent 100%
   );
 }
@@ -58,9 +66,9 @@ const props = withDefaults(defineProps<{ reverse?: boolean; noLight?: boolean }>
   background-image: conic-gradient(
     from var(--angle),
     transparent 0%,
-    aqua 1% 11%,
+    var(--border-color) 1% 11%,
     transparent 30% 50%,
-    aqua 51% 61%,
+    var(--border-color) 51% 61%,
     transparent 80% 100%
   );
 }
@@ -74,8 +82,12 @@ const props = withDefaults(defineProps<{ reverse?: boolean; noLight?: boolean }>
 }
 .slot-content {
   border-radius: 2px;
-  background: radial-gradient(ellipse 100% 100% at 50% 50%, #0b1753 0%, #0b1753 25%, #082782 100%);
-  height: 100%;
+  background: radial-gradient(
+    ellipse 100% 100% at 50% 50%,
+    var(--bg-color) 0%,
+    var(--bg-color) 25%,
+    var(--bg-color) 100%
+  );
 }
 .slot-content::before {
   content: '';

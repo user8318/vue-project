@@ -140,7 +140,7 @@ onMounted(() => {
         </filter>
       </defs>
     </svg>
-    <slot class="slot"></slot>
+    <slot></slot>
   </div>
 </template>
 <style scoped>
@@ -198,9 +198,5 @@ onMounted(() => {
   filter: blur(32px);
   transform: scale(1.1);
   opacity: 0.2;
-}
-.slot {
-  width: 100%;
-  height: 100%;
 }
 </style>
