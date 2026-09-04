@@ -12,8 +12,8 @@ export interface BaseButtonProps {
   loading?: boolean
   disabled?: boolean
   url?: string
-  data?: unknown
-  headers?: object
+  data?: Record<string, string | Blob>
+  headers?: Record<string, string>
   filename?: string
   accept?: string
 }

@@ -9,6 +9,7 @@ const props = withDefaults(
   },
 )
 </script>
+
 <template>
   <div class="light-border" :class="{ reverse: props.reverse, 'no-light': props.noLight }">
     <div class="slot-content">
@@ -16,6 +17,7 @@ const props = withDefaults(
     </div>
   </div>
 </template>
+
 <style scoped>
 @property --angle {
   syntax: '<angle>';

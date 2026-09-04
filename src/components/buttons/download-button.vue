@@ -16,11 +16,12 @@ const handleDownload = useLoading(downloading)(async () => {
   await downloadFile(props.url, props.data, props.filename)
 })
 </script>
+
 <template>
   <n-button v-bind="props" :loading="isLoading" @click="handleDownload">
     <template #icon>
       <n-icon><Download /></n-icon>
     </template>
-    {{ props.label }}
+    {{ label }}
   </n-button>
 </template>

@@ -20,4 +20,5 @@ defineExpose({
   setOption,
 })
 </script>
+
 <template><div ref="chartRef"></div></template>

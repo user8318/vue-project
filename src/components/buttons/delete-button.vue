@@ -7,6 +7,7 @@ const props = withDefaults(defineProps<BaseButtonProps>(), {
 })
 const emit = defineEmits(['delete'])
 </script>
+
 <template>
   <n-popconfirm @positive-click="emit('delete')">
     <template #trigger>
@@ -14,9 +15,9 @@ const emit = defineEmits(['delete'])
         <template #icon>
           <n-icon><Remove /></n-icon>
         </template>
-        {{ props.label }}
+        {{ label }}
       </n-button>
     </template>
-    是否确认{{ props.label ?? '删除' }}？
+    是否确认{{ label ?? '删除' }}？
   </n-popconfirm>
 </template>

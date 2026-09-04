@@ -5,11 +5,12 @@ const props = withDefaults(defineProps<BaseButtonProps>(), {
   label: '取消',
 })
 </script>
+
 <template>
   <n-button v-bind="props">
     <template #icon>
       <n-icon><Close /></n-icon>
     </template>
-    {{ props.label }}
+    {{ label }}
   </n-button>
 </template>

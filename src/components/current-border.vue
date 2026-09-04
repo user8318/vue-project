@@ -48,6 +48,7 @@ onMounted(() => {
   }
 })
 </script>
+
 <template>
   <div ref="borderRef" class="current-border" :class="{ 'hover-active': props.hoverActive }">
     <div class="layer main"></div>
@@ -143,6 +144,7 @@ onMounted(() => {
     <slot></slot>
   </div>
 </template>
+
 <style scoped>
 .current-border {
   --border-color: v-bind('props.borderColor');

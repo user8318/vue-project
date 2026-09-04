@@ -6,11 +6,12 @@ const props = withDefaults(defineProps<BaseButtonProps>(), {
   type: 'info',
 })
 </script>
+
 <template>
   <n-button v-bind="props">
     <template #icon>
       <n-icon><Play /></n-icon>
     </template>
-    {{ props.label }}
+    {{ label }}
   </n-button>
 </template>

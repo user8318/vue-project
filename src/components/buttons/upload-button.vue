@@ -14,27 +14,31 @@ const props = withDefaults(defineProps<BaseButtonProps>(), {
 })
 const uploadUrl = import.meta.env.VITE_API_TEMPLATE + props.url
 const fileList = ref<UploadFileInfo[]>([])
+const onFinish = () => {
+  nMessage.success('上传成功')
+}
 const onError = () => {
   nMessage.error('上传失败')
   fileList.value = []
 }
 </script>
+
 <template>
   <n-upload
     v-model:file-list="fileList"
     :action="uploadUrl"
-    :headers="props.headers"
-    :data="props.data"
-    @finish="nMessage.success('上传成功')"
+    :headers
+    :data
+    @finish="onFinish"
     @error="onError"
     :max="1"
-    :accept="props.accept"
+    :accept
   >
     <n-button v-bind="props">
       <template #icon>
         <n-icon><CloudUpload /></n-icon>
       </template>
-      {{ props.label }}
+      {{ label }}
     </n-button>
   </n-upload>
 </template>

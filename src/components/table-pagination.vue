@@ -31,6 +31,7 @@ defineExpose({
   reset,
 })
 </script>
+
 <template>
   <n-pagination
     v-bind="pagination"
@@ -39,4 +40,3 @@ defineExpose({
     class="mt-2.5"
   />
 </template>
-<style scoped lang="scss"></style>
