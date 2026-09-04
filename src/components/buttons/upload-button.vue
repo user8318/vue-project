@@ -9,6 +9,7 @@ const props = withDefaults(defineProps<BaseButtonProps>(), {
   round: true,
   secondary: true,
   strong: true,
+  url: '',
   data: () => ({}),
   headers: () => ({}),
 })
