@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { UploadFileInfo } from 'naive-ui'
+import type { UploadFileInfo, UploadOnFinish } from 'naive-ui'
 import type { BaseButtonProps } from '@/types'
 import { CloudUpload } from '@vicons/ionicons5'
 const props = withDefaults(defineProps<BaseButtonProps>(), {
@@ -13,10 +13,22 @@ const props = withDefaults(defineProps<BaseButtonProps>(), {
   data: () => ({}),
   headers: () => ({}),
 })
-const uploadUrl = import.meta.env.VITE_API_TEMPLATE + props.url
+const emit = defineEmits(['finish', 'error'])
 const fileList = ref<UploadFileInfo[]>([])
-const onFinish = () => {
+const onFinish: UploadOnFinish = ({ event }) => {
   nMessage.success('上传成功')
+  fileList.value = []
+  const xhr = event?.target as XMLHttpRequest | null
+  const responseText = xhr?.responseText
+  let response = xhr?.response
+  if (responseText) {
+    try {
+      response = JSON.parse(responseText)
+    } catch {
+      response = responseText
+    }
+  }
+  emit('finish', response)
 }
 const onError = () => {
   nMessage.error('上传失败')
@@ -27,13 +39,13 @@ const onError = () => {
 <template>
   <n-upload
     v-model:file-list="fileList"
-    :action="uploadUrl"
+    :action="url"
     :headers
     :data
     @finish="onFinish"
     @error="onError"
-    :max="1"
     :accept
+    :showFileList
   >
     <n-button v-bind="props">
       <template #icon>

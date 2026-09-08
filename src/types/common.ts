@@ -15,5 +15,6 @@ export interface BaseButtonProps {
   data?: Record<string, string | Blob>
   headers?: Record<string, string>
   filename?: string
+  showFileList?: boolean
   accept?: string
 }
