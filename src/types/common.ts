@@ -17,4 +17,5 @@ export interface BaseButtonProps {
   filename?: string
   showFileList?: boolean
   accept?: string
+  onClick?: (event: MouseEvent) => void
 }

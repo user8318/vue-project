@@ -5,5 +5,5 @@ const processStatusTagProps = {
 } as const
 export const ProcessStatusTag = (status: number) => {
   const { text, type } = processStatusTagProps[(status as keyof typeof processStatusTagProps) ?? 1]
-  return <n-tag type={type}>{text}</n-tag>
+  return <NTag type={type}>{text}</NTag>
 }
