@@ -1,5 +1,5 @@
 export const query = (data: { id: string }) =>
-  request1({
+  requestTemplate({
     url: '/template/query',
     method: 'post',
     data,

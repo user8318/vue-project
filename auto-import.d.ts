@@ -110,7 +110,6 @@ declare global {
   const refManualReset: typeof import('@vueuse/core').refManualReset
   const refThrottled: typeof import('@vueuse/core').refThrottled
   const refWithControl: typeof import('@vueuse/core').refWithControl
-  const request1: typeof import('./src/api/services').request1
   const requestTemplate: typeof import('./src/api/services').requestTemplate
   const resolveComponent: typeof import('vue').resolveComponent
   const setActivePinia: typeof import('pinia').setActivePinia
