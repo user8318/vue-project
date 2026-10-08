@@ -10,12 +10,8 @@ export interface BaseButtonProps {
   secondary?: boolean
   strong?: boolean
   loading?: boolean
-  disabled?: boolean
   url?: string
   data?: Record<string, string | Blob>
-  headers?: Record<string, string>
   filename?: string
   showFileList?: boolean
-  accept?: string
-  onClick?: (event: MouseEvent) => void
 }

@@ -5,13 +5,11 @@ import { CloudUpload } from '@vicons/ionicons5'
 const props = withDefaults(defineProps<BaseButtonProps>(), {
   label: '上传',
   type: 'primary',
-  size: 'medium',
   round: true,
   secondary: true,
   strong: true,
   url: '',
-  data: () => ({}),
-  headers: () => ({}),
+  showFileList: false,
 })
 const emit = defineEmits(['finish', 'error'])
 const fileList = ref<UploadFileInfo[]>([])
@@ -40,11 +38,8 @@ const onError = () => {
   <n-upload
     v-model:file-list="fileList"
     :action="url"
-    :headers
-    :data
     @finish="onFinish"
     @error="onError"
-    :accept
     :showFileList
   >
     <n-button v-bind="props">

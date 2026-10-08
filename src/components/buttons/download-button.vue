@@ -8,8 +8,6 @@ const props = withDefaults(defineProps<BaseButtonProps>(), {
   secondary: true,
   strong: true,
   url: '',
-  data: () => ({}),
-  filename: '',
 })
 const downloading = ref(false)
 const isLoading = computed(() => props.loading || downloading.value)
