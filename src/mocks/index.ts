@@ -47,5 +47,5 @@ export const useMock = async () => {
       url: nUrl,
     })
   })
-  await worker.start({ onUnhandledRequest: 'bypass', quiet: true })
+  await worker.start({ onUnhandledFrame: 'bypass', quiet: true })
 }
